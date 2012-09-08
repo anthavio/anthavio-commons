@@ -17,7 +17,7 @@ import org.slf4j.LoggerFactory;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import com.anthavio.log.KmxToStringBuilder;
+import com.anthavio.log.ToStringBuilder;
 import com.anthavio.log.ToString;
 import com.anthavio.util.HibernateHelper;
 
@@ -103,7 +103,7 @@ public class ToStringTest {
 
 		@Override
 		public String toString() {
-			return KmxToStringBuilder.reflectionToString(this);
+			return ToStringBuilder.reflectionToString(this);
 			//return ReflectionToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
 		}
 

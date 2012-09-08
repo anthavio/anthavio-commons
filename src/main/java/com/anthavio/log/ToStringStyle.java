@@ -1,7 +1,6 @@
 package com.anthavio.log;
 
 import org.apache.commons.lang.SystemUtils;
-import org.apache.commons.lang.builder.ToStringStyle;
 
 /**
  * Specificky {@link ToStringStyle} pro moznosti lepsi konfigurace. Tento styl
@@ -12,9 +11,9 @@ import org.apache.commons.lang.builder.ToStringStyle;
  * @author janousekm
  */
 @SuppressWarnings("serial")
-public class KmxToStringStyle extends ToStringStyle {
+public class ToStringStyle extends org.apache.commons.lang.builder.ToStringStyle {
 
-	public KmxToStringStyle() {
+	public ToStringStyle() {
 		super();
 		this.setContentStart("[");
 		this.setFieldSeparator(SystemUtils.LINE_SEPARATOR + "  ");

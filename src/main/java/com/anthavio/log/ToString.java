@@ -8,7 +8,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
 /**
- * Anotace nese informace pro {@link KmxToStringBuilder}. Pomoci
+ * Anotace nese informace pro {@link ToStringBuilder}. Pomoci
  * {@link ToString#hide()} lze oznacit field, ktery nesmi byt logovan.
  * {XXX@link ToString#maxLength()} bude jednoho krasneho dne orezavat hodnotu fieldu na
  * zadany pocet znaku

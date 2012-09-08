@@ -6,7 +6,7 @@
 	<appender name="EVENTSTORE" class="com.anthavio.commons.test.EventStoringAppender"/>
 
 	<appender name="LOGFILE" class="ch.qos.logback.core.FileAppender">
-		<File>target/komix-test.log</File>
+		<File>target/anthavio-commons.log</File>
 		<Append>false</Append>
 
 		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
@@ -29,7 +29,7 @@
 		-->
 	</appender>
 
-	<logger name="cz.komix">
+	<logger name="com.anthavio">
 		<level value="debug"/>
 	</logger>
 	

@@ -6,7 +6,6 @@ import java.util.Collection;
 import java.util.Map;
 
 import org.apache.commons.lang.builder.ReflectionToStringBuilder;
-import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 
 import com.anthavio.util.HashUtil;
@@ -23,20 +22,20 @@ import com.anthavio.util.HibernateHelper;
  * prvku
  * 
  * @see ToString
- * @see KmxToStringStyle
+ * @see ToStringStyle
  * @author janousekm, vanek
  */
-public class KmxToStringBuilder extends ReflectionToStringBuilder {
+public class ToStringBuilder extends ReflectionToStringBuilder {
 
 	private static final boolean hibernatePresent = HibernateHelper.isHibernatePresent();
 
-	private static final KmxToStringStyle STYLE = new KmxToStringStyle();
+	private static final ToStringStyle STYLE = new com.anthavio.log.ToStringStyle();
 
-	public KmxToStringBuilder(Object object) {
+	public ToStringBuilder(Object object) {
 		super(object, STYLE);
 	}
 
-	public KmxToStringBuilder(Object object, ToStringStyle style) {
+	public ToStringBuilder(Object object, ToStringStyle style) {
 		super(object, style);
 	}
 
@@ -116,18 +115,18 @@ public class KmxToStringBuilder extends ReflectionToStringBuilder {
 	 * jsou vsechny features teto tridy ignorovany
 	 */
 	public static String reflectionToString(Object object) {
-		return new KmxToStringBuilder(object, ToStringStyle.SHORT_PREFIX_STYLE).toString();
+		return new ToStringBuilder(object, ToStringStyle.SHORT_PREFIX_STYLE).toString();
 	}
 
 	public static String reflectionToString(Object object, ToStringStyle style) {
-		return new KmxToStringBuilder(object, style).toString();
+		return new ToStringBuilder(object, style).toString();
 	}
 
 	public static String toString(Object object) {
-		return new KmxToStringBuilder(object, ToStringStyle.SHORT_PREFIX_STYLE).toString();
+		return new ToStringBuilder(object, ToStringStyle.SHORT_PREFIX_STYLE).toString();
 	}
 
 	public static String toString(Object object, ToStringStyle style) {
-		return new KmxToStringBuilder(object, style).toString();
+		return new ToStringBuilder(object, style).toString();
 	}
 }
