@@ -19,9 +19,9 @@
 	<description>Anthavio Common Classes</description>
 
 	<scm>
-		<connection>scm:git:git://github.com/anthavio/anthavio-commons</connection>
-		<developerConnection>scm:git:git@github.com:anthavio/anthavio-commons</developerConnection>
-		<url>https://github.com/anthavio/anthavio-commons</url>
+		<connection>scm:svn:http://svn.komix.com/svn/svnprojects/trunk/komix-libs/komix-common</connection>
+		<developerConnection>scm:svn:http://svn.komix.com/svn/svnprojects/trunk/komix-libs/komix-common</developerConnection>
+		<url>http://svn.komix.com/svn/svnprojects/trunk/komix-libs/komix-common</url>
 	</scm>
 
 	<developers>
@@ -87,7 +87,19 @@
 		<pluginManagement>
 		
 			<plugins>
-								
+				
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-enforcer-plugin</artifactId>
+					<configuration>
+						<rules>
+							<requireJavaVersion>
+								<version>(1.4.2,1.5.1)</version>
+							</requireJavaVersion>
+						</rules>
+					</configuration>
+				</plugin>
+				
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-release-plugin</artifactId>
@@ -103,7 +115,7 @@
 					<configuration>
 						<instrumentation>
 							<excludes>
-								<exclude>com/anthavio/example/**/*.class</exclude>
+								<exclude>cz/komix/example/**/*.class</exclude>
 								<exclude>org/w3/**/*.class</exclude>
 							</excludes>
 						</instrumentation>

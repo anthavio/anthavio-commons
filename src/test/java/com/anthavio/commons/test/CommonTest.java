@@ -34,7 +34,7 @@ public class CommonTest {
 	@Test
 	public void testSslSocketFactory() {
 		ClassLoader loader = Thread.currentThread().getContextClassLoader();
-		URL jksUrl = loader.getResource("test.jks");
+		URL jksUrl = loader.getResource("localhost.jks");
 		JksSslSocketFactory different = new JksSslSocketFactory(jksUrl, "kokosak", "kokosak", jksUrl,
 				"kokosak");
 		different.getSSLContext();
