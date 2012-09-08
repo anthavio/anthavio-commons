@@ -7,84 +7,13 @@
 	-->
 
 	<properties>
-		<title>komix-common changes</title>
-		<author email="vanek@komix.com">Martin Vaněk</author>
+		<title>anthavio-commons changes</title>
+		<author email="anthavio@post.cz">Martin Vaněk</author>
 	</properties>
 
 	<body>
 		
-		<release version="1.1.3" date="?">
-			<action dev="vanek" type="add">
-				cz.komix.TypeUtil.getTypeArguments()
-			</action>
-			
-		</release>
-		
-		<release version="1.1.2" date="2011-01-21">
-			<action dev="vanek" type="add">
-				public static KmxToStringBuilder.getHibernateProxiedValue
-			</action>
-			<action dev="vanek" type="update">
-				Prechod na maven 3
-			</action>
-			<action dev="vanek" type="update">
-				A zase Java5 -> Java6
-			</action>
-			<action dev="vanek" type="fix">
-				JksSslSocketFactory spatne zvladala pripad kdy slouzila pouze jako TrustStore
-			</action>
-		</release>
-		
-		<release version="1.1.1" date="2010-11-12">
-			<action dev="vanek" type="update">
-				kompilace jdk 1.5
-			</action>
-		</release>
-		
-		<release version="1.1.0" date="2011-11-12">
-			<action dev="vanek" type="update">
-				downgrade na java 5
-			</action>
-			<action dev="vanek" type="add">
-				ConfigurationException extends NonSolvableException
-			</action>
-			<action dev="vanek" type="add">
-				cz.komix.xml
-			</action>
-		</release>
-	
-		<release version="1.0.2" date="2010-09-07">
-			<action dev="vanek" type="update">
-				komix-parent 1.0.8
-			</action>
-			<action dev="vanek" type="add">
-				cz.komix.util.RcGenerator
-			</action>
-			<action dev="vanek" type="add">
-				cz.komix.util.JdbcUtil
-			</action>
-			<action dev="vanek" type="add">
-				cz.komix.date.*
-			</action>
-		</release>
-
-		<release version="1.0.1" date="2010-08-13">
-			<action dev="vanek" type="update">
-				SimpleJaxbParser -> SimpleJaxbBinder
-			</action>
-			<action dev="vanek" type="update">
-				Java5 -> Java6
-			</action>
-			<action dev="vanek" type="add">
-				cz.komix.util.StringNormalizer
-			</action>
-		</release>
-
-
-		<release version="1.0.0" date="2010-08-10">
-			<action dev="vanek" type="add">
-				Pocatecni vyber trid z prilis obecne knihovny komix-spring
-			</action>
+		<release version="1.0.0" date="">
 		</release>
 
 	</body>
