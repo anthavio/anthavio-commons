@@ -90,18 +90,6 @@
 				
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-enforcer-plugin</artifactId>
-					<configuration>
-						<rules>
-							<requireJavaVersion>
-								<version>(1.4.2,1.5.1)</version>
-							</requireJavaVersion>
-						</rules>
-					</configuration>
-				</plugin>
-				
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-release-plugin</artifactId>
 					<configuration>
 						<!-- release:perform attach sources&javadoc -->
