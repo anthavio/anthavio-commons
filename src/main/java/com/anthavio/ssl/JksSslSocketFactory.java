@@ -6,6 +6,7 @@ import java.net.InetAddress;
 import java.net.Socket;
 import java.net.URL;
 import java.net.UnknownHostException;
+import java.security.GeneralSecurityException;
 import java.security.KeyStore;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
@@ -30,7 +31,7 @@ import org.slf4j.LoggerFactory;
 /**
  * @author vanek
  * 
- * Implementace {@link SSLSocketFactory} nacitajici certifikaty z JKS keystoru
+ * JKS keystore backed {@link SSLSocketFactory} implementation
  * 
  */
 public class JksSslSocketFactory extends SSLSocketFactory {
@@ -137,8 +138,8 @@ public class JksSslSocketFactory extends SSLSocketFactory {
 
 			sslcontext = SSLContext.getInstance("SSL");
 			sslcontext.init(keymanagers, trustmanagers, new SecureRandom());
-		} catch (Exception x) {
-			throw new IllegalArgumentException("Failed to create SSLContext", x);
+		} catch (GeneralSecurityException gsx) {
+			throw new IllegalArgumentException("Failed to create SSLContext", gsx);
 		}
 	}
 

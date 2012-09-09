@@ -6,14 +6,18 @@ package com.anthavio.util;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.Reader;
 import java.io.Writer;
 import java.nio.charset.Charset;
+import java.nio.charset.CharsetEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,19 +27,21 @@ import java.util.List;
  * java.util.Properties is very unsuitable for editing
  */
 public class PropertiesUtil {
+	
+	private static final Charset UTF8=Charset.forName("utf-8");
 
 	public static List<PropertyLine> load(InputStream stream) throws IOException {
 		if (stream == null) {
 			throw new IllegalArgumentException("Null InputStream");
 		}
-		return load(new InputStreamReader(stream, Charset.forName("utf-8")));
+		return load(new InputStreamReader(stream, UTF8));
 	}
 
 	public static List<PropertyLine> load(File file) throws IOException {
 		if (file == null) {
 			throw new IllegalArgumentException("Null File");
 		}
-		return load(new FileReader(file));
+		return load(new InputStreamReader(new FileInputStream(file), UTF8));
 	}
 
 	public static List<PropertyLine> load(Reader reader) throws IOException {
@@ -59,7 +65,7 @@ public class PropertiesUtil {
 		if (file == null) {
 			throw new IllegalArgumentException("Null File");
 		}
-		save(lines, new FileWriter(file));
+		save(lines, new OutputStreamWriter(new FileOutputStream(file),UTF8));
 	}
 
 	public static void save(List<PropertyLine> lines, Writer writer) throws IOException {
