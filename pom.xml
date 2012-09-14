@@ -19,8 +19,8 @@
 	<description>Anthavio Common Classes</description>
 
 	<scm>
-		<connection>scm:git:git://github.com/anthavio/anthavio-commons</connection>
-		<developerConnection>scm:git:git@github.com:anthavio/anthavio-commons</developerConnection>
+		<connection>scm:git:git://github.com/anthavio/anthavio-commons.git</connection>
+		<developerConnection>scm:git:git@github.com:anthavio/anthavio-commons.git</developerConnection>
 		<url>https://github.com/anthavio/anthavio-commons</url>
 	</scm>
 
