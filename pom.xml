@@ -123,9 +123,6 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<configuration>
-					<additionalJOption>-J-Xms32m -J-Xmx128m</additionalJOption>
-				</configuration>
 				<executions>
 					<execution>
 						<id>attach-javadocs</id>
@@ -205,6 +202,8 @@
 								<quiet>true</quiet>
 								<encoding>${project.build.sourceEncoding}</encoding>
 								<docencoding>${project.build.sourceEncoding}</docencoding>
+								<minmemory>32m</minmemory>
+								<maxmemory>128m</maxmemory>
 							</configuration>
 						</plugin>
 			
