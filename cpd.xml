@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd-cpd>
+<duplication lines="19" tokens="101">
+<file line="48" path="/Devel/projects/anthavio/anthavio-commons/src/main/java/com/anthavio/io/ResetableInputStream.java"/>
+<file line="48" path="/Devel/projects/anthavio/anthavio-commons/src/main/java/com/anthavio/io/ResetableReader.java"/>
+<codefragment>
+<![CDATA[
+		this.buff = new byte[size];
+	}
+
+	@Override
+	public void reset() throws IOException {
+		if (overflow) {
+			throw new IllegalStateException("Cannot reset. Maximal character count " + buff.length + " reached");
+		}
+		log.debug("reset " + new String(buff, 0, bpos));
+		rpos = 0;
+	}
+
+	@Override
+	public int read() throws IOException {
+		if (rpos == -1) { //from parent
+			int c = parent.read();
+			if (c > 0) {
+				if (bpos < buff.length) {
+					buff[bpos++] = (byte) c;
+]]>
+</codefragment>
+</duplication>
+</pmd-cpd>
