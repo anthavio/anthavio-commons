@@ -17,13 +17,19 @@
 	
 	<inceptionYear>2010</inceptionYear>
 	<description>Anthavio Common Classes</description>
-
-	<scm>
-		<connection>scm:git:git://github.com/anthavio/anthavio-commons.git</connection>
-		<developerConnection>scm:git:git@github.com:anthavio/anthavio-commons.git</developerConnection>
-		<url>https://github.com/anthavio/anthavio-commons</url>
-	</scm>
-
+	
+	<url>xxx</url>
+	
+<!--
+	<url>http://dev.anthavio.org/y/${project.version}/</url>
+	
+	<distributionManagement>
+		<site>
+			<id>dev.anthavio.org</id>
+			<url>scp://dev.anthavio.org/opt/bldsrv/server/webapps/maven-sites/y/${project.version}/</url>
+		</site>
+	</distributionManagement>
+-->
 	<developers>
 		
 		<developer>
