@@ -1,10 +1,10 @@
 package com.anthavio;
 
 /**
+ * Vyhodit pokud prijde ze vstupu neocekavana volba Typicke pouziti v default
+ * casti switch
+ * 
  * @author vanek
- *
- * Vyhodit pokud prijde ze vstupu neocekavana volba
- * Typicke pouziti v default casti switch
  * 
  */
 public class NotSupportedException extends IllegalArgumentException {
@@ -12,6 +12,6 @@ public class NotSupportedException extends IllegalArgumentException {
 	private static final long serialVersionUID = 1L;
 
 	public NotSupportedException(Object choice) {
-		super(String.valueOf(choice));
+		super("Value is not supported: '" + String.valueOf(choice) + "'");
 	}
 }

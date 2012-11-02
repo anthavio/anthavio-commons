@@ -2,17 +2,18 @@ package com.anthavio.util;
 
 import java.security.MessageDigest;
 
-import com.anthavio.NonSolvableException;
-
+import org.apache.commons.lang.NullArgumentException;
+import org.apache.commons.lang.UnhandledException;
 
 /**
  * HashUtil - simple class for comuting md5 hash
+ * 
  * @author peremsky on Jun 21, 2010
  */
 public class HashUtil {
 
 	private HashUtil() {
-		//disable new
+		// disable new
 	}
 
 	private static final String HEXES = "0123456789abcdef";
@@ -46,10 +47,10 @@ public class HashUtil {
 
 	public static String hash(String algorithm, String input, String salt) {
 		if (algorithm == null) {
-			throw new IllegalArgumentException("No algorithm given");
+			throw new NullArgumentException("algorithm");
 		}
 		if (input == null) {
-			throw new IllegalArgumentException("No input given");
+			throw new NullArgumentException("input");
 		}
 		try {
 			MessageDigest md = MessageDigest.getInstance(algorithm);
@@ -57,7 +58,7 @@ public class HashUtil {
 			byte[] hash = md.digest(saltedInput.getBytes("utf-8"));
 			return getHexString(hash);
 		} catch (Exception e) {
-			throw new NonSolvableException("Error calculating " + algorithm + " hash", e);
+			throw new UnhandledException("Error calculating " + algorithm + " hash", e);
 		}
 	}
 }
