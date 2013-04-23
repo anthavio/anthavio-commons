@@ -17,9 +17,15 @@
 	
 	<inceptionYear>2010</inceptionYear>
 	<description>Anthavio Common Classes</description>
+
+	<url>http://anthavio.github.com/${project.name}</url>
 	
-	<url>xxx</url>
-	
+	<scm>
+		<url>https://github.com/anthavio/${project.name}</url>
+		<connection>scm:git:git://github.com/anthavio/${project.name}.git</connection>
+		<developerConnection>scm:git:git@github.com:anthavio/${project.name}.git</developerConnection>
+  </scm>
+		
 <!--
 	<url>http://dev.anthavio.org/y/${project.version}/</url>
 	
@@ -90,56 +96,9 @@
 	</dependencies>
 
 	<build>
-		<pluginManagement>
-		
-			<plugins>
-				
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-release-plugin</artifactId>
-					<configuration>
-						<!-- release:perform attach sources&javadoc -->
-						<useReleaseProfile>true</useReleaseProfile>
-					</configuration>
-				</plugin>
-				
-				<plugin>
-					<groupId>org.codehaus.mojo</groupId>
-					<artifactId>cobertura-maven-plugin</artifactId>
-					<configuration>
-						<instrumentation>
-							<excludes>
-								<exclude>com/anthavio/example/**/*.class</exclude>
-								<exclude>org/w3/**/*.class</exclude>
-							</excludes>
-						</instrumentation>
-					</configuration>
-				</plugin>
 
-			</plugins>
-		</pluginManagement>
-		
 		<plugins>
 
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-source-plugin</artifactId>
-			</plugin>
-			
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>attach-javadocs</id>
-						<phase>verify</phase>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-site-plugin</artifactId>
@@ -166,7 +125,7 @@
 
 						<plugin>
 							<groupId>de.smartics.maven.plugin</groupId>
-							<artifactId>maven-buildmetadata-plugin</artifactId>
+							<artifactId>buildmetadata-maven-plugin</artifactId>
 							<reports>
 								<report>buildmetadata-report</report>
 							</reports>
@@ -266,10 +225,12 @@
 								<linkXref>true</linkXref>
 								<sourceEncoding>${project.build.sourceEncoding}</sourceEncoding>
 								<minimumTokens>100</minimumTokens>
+								<!--
 								<rulesets>
 									<ruleset>/rulesets/basic.xml</ruleset>
 									<ruleset>/rulesets/unusedcode.xml</ruleset>
 								</rulesets>
+								-->
 								<excludeRoots>
 									<excludeRoot>target/generated-sources</excludeRoot>
 									<excludeRoot>target/jsp-source</excludeRoot>
@@ -293,25 +254,11 @@
 								<threshold>Low</threshold>
 							</configuration>
 						</plugin>
-						<!--
-						<plugin>
-							<groupId>net.sf</groupId>
-							<artifactId>stat-scm</artifactId>
-							<configuration>
-								<skip>${stat-scm.skip}</skip>
-								<excludes>
-									<exclude>**/*.doc</exclude>
-									<exclude>**/*.xls</exclude>
-								</excludes>
-							</configuration>
-						</plugin>
-						-->
 					</reportPlugins>
 				</configuration>
 			</plugin>
-			
+
 		</plugins>
-		
 	</build>
 
 </project>
