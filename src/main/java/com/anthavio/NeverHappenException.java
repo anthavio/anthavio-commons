@@ -1,8 +1,7 @@
 package com.anthavio;
 
 /**
- * This should never happen exception. Use in situation that realy shouldn't
- * happen
+ * This should never happen exception. Use in situation that really shouldn't happen...NEVER
  * 
  * @author martin.vanek
  * 

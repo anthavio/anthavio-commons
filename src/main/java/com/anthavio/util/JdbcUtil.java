@@ -180,8 +180,7 @@ public class JdbcUtil {
 		}
 	}
 
-	public static void setBoolean(PreparedStatement ps, int parameterIndex, Boolean x)
-			throws SQLException {
+	public static void setBoolean(PreparedStatement ps, int parameterIndex, Boolean x) throws SQLException {
 		if (x != null) {
 			ps.setBoolean(parameterIndex, x.booleanValue());
 		} else {
@@ -197,8 +196,7 @@ public class JdbcUtil {
 		}
 	}
 
-	public static void setShort(PreparedStatement ps, int parameterIndex, Short x)
-			throws SQLException {
+	public static void setShort(PreparedStatement ps, int parameterIndex, Short x) throws SQLException {
 		if (x != null) {
 			ps.setShort(parameterIndex, x.shortValue());
 		} else {
@@ -206,8 +204,7 @@ public class JdbcUtil {
 		}
 	}
 
-	public static void setInteger(PreparedStatement ps, int parameterIndex, Integer x)
-			throws SQLException {
+	public static void setInteger(PreparedStatement ps, int parameterIndex, Integer x) throws SQLException {
 		if (x != null) {
 			ps.setInt(parameterIndex, x.intValue());
 		} else {
@@ -223,8 +220,7 @@ public class JdbcUtil {
 		}
 	}
 
-	public static void setDouble(PreparedStatement ps, int parameterIndex, Double x)
-			throws SQLException {
+	public static void setDouble(PreparedStatement ps, int parameterIndex, Double x) throws SQLException {
 		if (x != null) {
 			ps.setDouble(parameterIndex, x.doubleValue());
 		} else {
@@ -232,8 +228,7 @@ public class JdbcUtil {
 		}
 	}
 
-	public static void setFloat(PreparedStatement ps, int parameterIndex, Float x)
-			throws SQLException {
+	public static void setFloat(PreparedStatement ps, int parameterIndex, Float x) throws SQLException {
 		if (x != null) {
 			ps.setFloat(parameterIndex, x.floatValue());
 		} else {
@@ -241,8 +236,7 @@ public class JdbcUtil {
 		}
 	}
 
-	public static void setBigDecimal(PreparedStatement ps, int parameterIndex, BigDecimal x)
-			throws SQLException {
+	public static void setBigDecimal(PreparedStatement ps, int parameterIndex, BigDecimal x) throws SQLException {
 		if (x != null) {
 			ps.setBigDecimal(parameterIndex, x);
 		} else {
@@ -251,8 +245,7 @@ public class JdbcUtil {
 		}
 	}
 
-	public static void setDate(PreparedStatement ps, int parameterIndex, java.util.Date x)
-			throws SQLException {
+	public static void setDate(PreparedStatement ps, int parameterIndex, java.util.Date x) throws SQLException {
 		if (x != null) {
 			ps.setDate(parameterIndex, new java.sql.Date(x.getTime()));
 		} else {
@@ -261,8 +254,7 @@ public class JdbcUtil {
 		}
 	}
 
-	public static void setString(PreparedStatement ps, int parameterIndex, String x)
-			throws SQLException {
+	public static void setString(PreparedStatement ps, int parameterIndex, String x) throws SQLException {
 		if (x != null && x.length() > 0) {
 			x = x.trim();
 			if (x.length() > 0) {
@@ -274,8 +266,7 @@ public class JdbcUtil {
 
 	}
 
-	public static void setCharacter(PreparedStatement ps, int parameterIndex, Character x)
-			throws SQLException {
+	public static void setCharacter(PreparedStatement ps, int parameterIndex, Character x) throws SQLException {
 		if (x != null) {
 			ps.setString(parameterIndex, x.toString());
 		} else {

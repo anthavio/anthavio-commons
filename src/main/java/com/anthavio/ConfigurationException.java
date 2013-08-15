@@ -7,19 +7,19 @@ package com.anthavio;
  * @author vanek
  * 
  */
-public class ConfigException extends NonSolvableException {
+public class ConfigurationException extends NonSolvableException {
 
 	private static final long serialVersionUID = -6710421229805852114L;
 
-	public ConfigException(String message, Throwable cause) {
+	public ConfigurationException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
-	public ConfigException(String message) {
+	public ConfigurationException(String message) {
 		super(message);
 	}
 
-	public ConfigException(Throwable cause) {
+	public ConfigurationException(Throwable cause) {
 		super(cause);
 	}
 }

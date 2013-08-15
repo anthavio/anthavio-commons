@@ -1,8 +1,7 @@
 package com.anthavio;
 
 /**
- * Vyhodit pokud prijde ze vstupu neocekavana volba Typicke pouziti v default
- * casti switch
+ * Throw when unusable value is passed to be used. Typical for unexcpected value in switch/case
  * 
  * @author vanek
  * 
