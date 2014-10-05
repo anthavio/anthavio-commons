@@ -1,11 +1,10 @@
 package net.anthavio.commons.test;
 
-import static org.fest.assertions.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import net.anthavio.util.RcGenerator;
 import net.anthavio.util.RcGenerator.RcType;
 
-import org.testng.annotations.Test;
-
+import org.junit.Test;
 
 /**
  * @author vanek
@@ -43,7 +42,8 @@ public class RcGeneratorTest {
 		int checkNumber = Integer.parseInt(rc.substring(0, 6) + rc.substring(7, 10));
 		int crcNumber = Integer.valueOf(rc.substring(10));
 		assertThat(crcNumber).isEqualTo(0).overridingErrorMessage("Invalid checksum last digit for special RC: " + rc);
-		assertThat(checkNumber % 11).isEqualTo(10).overridingErrorMessage("Invalid checksum for special RC (modulo == 10): " + rc);
+		assertThat(checkNumber % 11).isEqualTo(10).overridingErrorMessage(
+				"Invalid checksum for special RC (modulo == 10): " + rc);
 	}
 
 	private void validateOfficialRc(String rc) {
@@ -51,7 +51,8 @@ public class RcGeneratorTest {
 		int checkNumber = Integer.parseInt(rc.substring(0, 6) + rc.substring(7, 10));
 		int crcNumber = Integer.valueOf(rc.substring(10));
 		if (checkNumber % 11 == 10) {
-			assertThat(crcNumber).isEqualTo(0).overridingErrorMessage("Invalid checksum for special RC (modulo == 10): " + rc);
+			assertThat(crcNumber).isEqualTo(0)
+					.overridingErrorMessage("Invalid checksum for special RC (modulo == 10): " + rc);
 		} else {
 			assertThat(checkNumber % 11).isEqualTo(crcNumber).overridingErrorMessage("Invalid checksum for RC: " + rc);
 		}

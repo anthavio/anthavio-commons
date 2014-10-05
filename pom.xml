@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>net.anthavio.maven</groupId>
 		<artifactId>anthavio-super-pom</artifactId>
-		<version>1</version>
+		<version>3</version>
 	</parent>
 	
 	<groupId>net.anthavio</groupId>
@@ -14,30 +14,19 @@
 	<packaging>jar</packaging>
 	
 	<name>anthavio-commons</name>
-	
-	<inceptionYear>2010</inceptionYear>
 	<description>Anthavio Common Classes</description>
+	<inceptionYear>2010</inceptionYear>
 
-	<url>http://anthavio.github.com/${project.name}</url>
+	<url>http://anthavio.github.com/anthavio-commons</url>
 	
 	<scm>
-		<url>https://github.com/anthavio/${project.name}</url>
-		<connection>scm:git:git://github.com/anthavio/${project.name}.git</connection>
-		<developerConnection>scm:git:git@github.com:anthavio/${project.name}.git</developerConnection>
+		<url>https://github.com/anthavio/anthavio-commons</url>
+		<connection>scm:git:git://github.com/anthavio/anthavio-commons.git</connection>
+		<developerConnection>scm:git:git@github.com:anthavio/anthavio-commons.git</developerConnection>
+	  <tag>HEAD</tag>
   </scm>
-		
-<!--
-	<url>http://dev.anthavio.org/y/${project.version}/</url>
-	
-	<distributionManagement>
-		<site>
-			<id>dev.anthavio.org</id>
-			<url>scp://dev.anthavio.org/opt/bldsrv/server/webapps/maven-sites/y/${project.version}/</url>
-		</site>
-	</distributionManagement>
--->
+
 	<developers>
-		
 		<developer>
 			<id>anthavio</id>
 			<name>Martin Vaněk</name>
@@ -46,15 +35,18 @@
 				<role>Java Developer</role>
 			</roles>
 		</developer>
-
 	</developers>
+	
+	<properties>
+		<project.build.java.target>1.6</project.build.java.target>
+	</properties>
 
 	<dependencies>
 
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
-			<version>1.7.5</version>
+			<version>1.7.7</version>
 		</dependency>
 		
 		<dependency>
@@ -68,21 +60,21 @@
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
-			<version>1.0.13</version>
+			<version>1.1.1</version>
 			<scope>test</scope>
 		</dependency>
 				
 		<dependency>
-			<groupId>org.testng</groupId>
-			<artifactId>testng</artifactId>
-			<version>6.8.5</version>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
 			<scope>test</scope>
 		</dependency>
 
 		<dependency>
-			<groupId>org.easytesting</groupId>
-			<artifactId>fest-assert-core</artifactId>
-			<version>2.0M10</version>
+			<groupId>org.assertj</groupId>
+			<artifactId>assertj-core</artifactId>
+			<version>1.6.1</version>
 			<scope>test</scope>
 		</dependency>
 		

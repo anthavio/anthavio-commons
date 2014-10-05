@@ -7,8 +7,7 @@ import java.net.ServerSocket;
 
 import net.anthavio.NonSolvableException;
 
-import org.testng.annotations.Test;
-
+import org.junit.Test;
 
 public class ExceptionTest {
 

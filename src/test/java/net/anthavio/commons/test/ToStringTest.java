@@ -3,7 +3,7 @@
  */
 package net.anthavio.commons.test;
 
-import static org.fest.assertions.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -16,10 +16,10 @@ import net.anthavio.log.ToString;
 import net.anthavio.log.ToStringBuilder;
 import net.anthavio.util.HibernateHelper;
 
+import org.junit.BeforeClass;
+import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
 
 import ch.qos.logback.classic.spi.ILoggingEvent;
 
@@ -32,7 +32,7 @@ public class ToStringTest {
 	private final Logger log = LoggerFactory.getLogger(getClass());
 
 	@BeforeClass
-	public void beforeTest() {
+	public static void beforeTest() {
 		HibernateHelper.isHibernatePresent();
 		EventStoringAppender.getEvents().clear();
 	}
@@ -109,5 +109,3 @@ public class ToStringTest {
 
 	}
 }
-
-

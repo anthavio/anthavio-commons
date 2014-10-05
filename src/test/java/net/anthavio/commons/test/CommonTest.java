@@ -1,6 +1,6 @@
 package net.anthavio.commons.test;
 
-import static org.fest.assertions.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.net.URL;
 import java.security.KeyStore;
@@ -10,7 +10,7 @@ import net.anthavio.util.HashUtil;
 import net.anthavio.util.StringUtil;
 
 import org.jasypt.util.digest.Digester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
 /**
  * @author vanek
@@ -34,8 +34,7 @@ public class CommonTest {
 	public void testSslSocketFactory() {
 		ClassLoader loader = Thread.currentThread().getContextClassLoader();
 		URL jksUrl = loader.getResource("test.jks");
-		JksSslSocketFactory different = new JksSslSocketFactory(jksUrl, "kokosak",
-				"kokosak", jksUrl, "kokosak");
+		JksSslSocketFactory different = new JksSslSocketFactory(jksUrl, "kokosak", "kokosak", jksUrl, "kokosak");
 		different.getSSLContext();
 
 		KeyStore jks = JksSslSocketFactory.loadKeyStore(jksUrl, "kokosak");

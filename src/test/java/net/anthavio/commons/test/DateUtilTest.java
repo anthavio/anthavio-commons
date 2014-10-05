@@ -1,13 +1,13 @@
 package net.anthavio.commons.test;
 
-import static org.fest.assertions.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.Date;
 
 import net.anthavio.util.DateUtil;
 
-import org.testng.Assert;
-import org.testng.annotations.Test;
+import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 /**
  * @author vanek
@@ -17,13 +17,11 @@ public class DateUtilTest {
 
 	public Date leapFebruaryDate = DateUtil.getDate(1, 2, 2000);
 	public Date leapFirstDate = DateUtil.getDate(1, 1, 2000);
-	public Date leapLastDate = DateUtil.getEndOfDay(DateUtil
-			.getDate(31, 12, 2000));
+	public Date leapLastDate = DateUtil.getEndOfDay(DateUtil.getDate(31, 12, 2000));
 
 	public Date simpleFebruaryDate = DateUtil.getDate(1, 2, 2010);
 	public Date simpleFirstDate = DateUtil.getDate(1, 1, 2010);
-	public Date simpleLastDate = DateUtil.getEndOfDay(DateUtil.getDate(31, 12,
-			2010));
+	public Date simpleLastDate = DateUtil.getEndOfDay(DateUtil.getDate(31, 12, 2010));
 
 	@Test
 	public void testDiffCount() {
@@ -34,39 +32,33 @@ public class DateUtilTest {
 				"Diff between last day and first day in nonleaping year is 364");
 
 		diff = DateUtil.getDaysDiff(leapFirstDate, leapLastDate);
-		assertThat(diff).isEqualTo(365).overridingErrorMessage(
-				"Diff between last day and first day in leaping year is 365");
+		assertThat(diff).isEqualTo(365)
+				.overridingErrorMessage("Diff between last day and first day in leaping year is 365");
 
 		date1 = DateUtil.getActualDateNoTime();
 		date2 = DateUtil.addHours(date1, 1);
 		diff = DateUtil.getHoursDiff(date1, date2);
-		assertThat(diff).isEqualTo(1).overridingErrorMessage(
-				"addHours 1 should be 1 hour diff");
+		assertThat(diff).isEqualTo(1).overridingErrorMessage("addHours 1 should be 1 hour diff");
 		date2 = DateUtil.addSeconds(date2, -1);// minus second
 		diff = DateUtil.getHoursDiff(date1, date2);
 		// 59 minut a 59 sekund neni hodina
-		assertThat(diff).isEqualTo(0).overridingErrorMessage(
-				"addHours 1 addSeconds -1 should be same hour");
+		assertThat(diff).isEqualTo(0).overridingErrorMessage("addHours 1 addSeconds -1 should be same hour");
 
 		// addDays
 
 		date1 = DateUtil.getActualDateNoTime();
 		date2 = DateUtil.addDays(date1, 1);
 		diff = DateUtil.getDaysDiff(date1, date2);
-		assertThat(diff).isEqualTo(1).overridingErrorMessage(
-				"addDays 1 should be 1 day diff");
+		assertThat(diff).isEqualTo(1).overridingErrorMessage("addDays 1 should be 1 day diff");
 		diff = DateUtil.getHoursDiff(date1, date2);
-		assertThat(diff).isEqualTo(24).overridingErrorMessage(
-				"addDays 1 should be 24 hours diff");
+		assertThat(diff).isEqualTo(24).overridingErrorMessage("addDays 1 should be 24 hours diff");
 
 		date2 = DateUtil.addSeconds(date2, -1); // minus second
 		diff = DateUtil.getDaysDiff(date1, date2);
 		// this is valid only if date1 is StartOfDay
-		assertThat(diff).isEqualTo(0).overridingErrorMessage(
-				"addDays 1 addSeconds -1 should be same day");
+		assertThat(diff).isEqualTo(0).overridingErrorMessage("addDays 1 addSeconds -1 should be same day");
 		diff = DateUtil.getHoursDiff(date1, date2);
-		assertThat(diff).isEqualTo(23).overridingErrorMessage(
-				"addDays 1 addSeconds -1 should be 23 hours diff");
+		assertThat(diff).isEqualTo(23).overridingErrorMessage("addDays 1 addSeconds -1 should be 23 hours diff");
 
 		// addMonths
 
@@ -74,42 +66,34 @@ public class DateUtilTest {
 		date2 = DateUtil.addMonths(date1, 1);
 		diff = DateUtil.getMonthsDiff(date1, date2);
 		// FIXME nefunguje pro date1 = 31.10.2011
-		assertThat(diff).isEqualTo(1).overridingErrorMessage(
-				"addMonths 1 should be 1 month diff");
+		assertThat(diff).isEqualTo(1).overridingErrorMessage("addMonths 1 should be 1 month diff");
 		date2 = DateUtil.addSeconds(date2, -1); // minus second
 		diff = DateUtil.getMonthsDiff(date1, date2);
-		assertThat(diff).isEqualTo(0).overridingErrorMessage(
-				"addMonths 1 addSeconds -1 should be 0 month diff");
+		assertThat(diff).isEqualTo(0).overridingErrorMessage("addMonths 1 addSeconds -1 should be 0 month diff");
 
 		date1 = DateUtil.getEndOfDay(new Date());
 		date2 = DateUtil.addSeconds(date1, 1);
 		diff = DateUtil.getDaysDiff(date1, date2);
-		assertThat(diff).isEqualTo(1).overridingErrorMessage(
-				"EndOfDay addSeconds 1 should be next day");
+		assertThat(diff).isEqualTo(1).overridingErrorMessage("EndOfDay addSeconds 1 should be next day");
 
 		date1 = DateUtil.getStartOfDay(new Date());
 		date2 = DateUtil.addSeconds(date1, -1);
 		diff = DateUtil.getDaysDiff(date1, date2);
-		assertThat(diff).isEqualTo(1).overridingErrorMessage(
-				"StartOfDay addSeconds -1 should be next day");
+		assertThat(diff).isEqualTo(1).overridingErrorMessage("StartOfDay addSeconds -1 should be next day");
 
 		// addYear tests
 		date1 = simpleFirstDate;
 		date2 = DateUtil.addYears(date1, 1);
 		diff = DateUtil.getYearsDiff(date1, date2);
-		assertThat(diff).isEqualTo(1).overridingErrorMessage(
-				"addYears 1 nonleaping should be 1 year diff");
+		assertThat(diff).isEqualTo(1).overridingErrorMessage("addYears 1 nonleaping should be 1 year diff");
 		diff = DateUtil.getMonthsDiff(date1, date2);
-		assertThat(diff).isEqualTo(12).overridingErrorMessage(
-				"addYears 1 nonleaping should be 12 months diff");
+		assertThat(diff).isEqualTo(12).overridingErrorMessage("addYears 1 nonleaping should be 12 months diff");
 		diff = DateUtil.getDaysDiff(date1, date2);
-		assertThat(diff).isEqualTo(365).overridingErrorMessage(
-				"addYears 1 nonleaping should be 365 days diff");
+		assertThat(diff).isEqualTo(365).overridingErrorMessage("addYears 1 nonleaping should be 365 days diff");
 
 		date2 = DateUtil.addSeconds(date2, -1);// minus second
 		diff = DateUtil.getYearsDiff(date1, date2);
-		assertThat(diff).isEqualTo(0).overridingErrorMessage(
-				"addYears 1 addSeconds -1 nonleaping should be 0 year diff");
+		assertThat(diff).isEqualTo(0).overridingErrorMessage("addYears 1 addSeconds -1 nonleaping should be 0 year diff");
 		diff = DateUtil.getMonthsDiff(date1, date2);
 		assertThat(diff).isEqualTo(11).overridingErrorMessage(
 				"addYears 1 addSeconds -1 nonleaping should be 11 months diff");
@@ -120,19 +104,16 @@ public class DateUtilTest {
 		date1 = simpleFirstDate;
 		date2 = simpleLastDate;
 		diff = DateUtil.getPersonAge(date1, date2);
-		assertThat(diff).isEqualTo(0).overridingErrorMessage(
-				"PersonAge in year of birth should be 0");
+		assertThat(diff).isEqualTo(0).overridingErrorMessage("PersonAge in year of birth should be 0");
 
 		date2 = DateUtil.addSeconds(date2, 1);
 		diff = DateUtil.getPersonAge(date1, date2);
-		assertThat(diff).isEqualTo(1).overridingErrorMessage(
-				"PersonAge of year addSeconds 1 birth should be 1");
+		assertThat(diff).isEqualTo(1).overridingErrorMessage("PersonAge of year addSeconds 1 birth should be 1");
 
 		date1 = DateUtil.getDate(5, 5, 1920);
 		date2 = DateUtil.getDate(4, 5, 1921);
 		diff = DateUtil.getPersonAge(date1, date2);
-		assertThat(diff).isEqualTo(0).overridingErrorMessage(
-				"PersonAge less then year should be 0");
+		assertThat(diff).isEqualTo(0).overridingErrorMessage("PersonAge less then year should be 0");
 
 	}
 
@@ -168,8 +149,7 @@ public class DateUtilTest {
 
 	@Test
 	public void testFormat() {
-		String format = DateUtil.format(leapLastDate,
-				DateUtil.D_M_YYYY_HH_MM_SS_SSS);
+		String format = DateUtil.format(leapLastDate, DateUtil.D_M_YYYY_HH_MM_SS_SSS);
 		assertThat(format).isEqualTo("31.12.2000 23:59:59,999");
 
 		String xsdDateTime = DateUtil.printXsdDateTime(leapFebruaryDate);
@@ -178,21 +158,21 @@ public class DateUtilTest {
 
 		try {
 			DateUtil.parse("Nesmyslne datum", "Nesmyslny pattern");
-			Assert.fail("Parsovani chybnym paternem nesmi projit");
+			Assertions.fail("Parsovani chybnym paternem nesmi projit");
 		} catch (IllegalArgumentException iax) {
 
 		}
 
 		try {
 			DateUtil.parse("Nesmyslne datum", DateUtil.D_M_YYYY_HH_MM_SS_SSS);
-			Assert.fail("Parsovani chybnym datem nesmi projit");
+			Assertions.fail("Parsovani chybnym datem nesmi projit");
 		} catch (IllegalArgumentException iax) {
 
 		}
 
 		try {
 			Date date = DateUtil.parseQuietly("1.1.1978", "Nesmyslny pattern");
-			Assert.fail("Parsovani chybnym paternem nesmi projit");
+			Assertions.fail("Parsovani chybnym paternem nesmi projit");
 		} catch (IllegalArgumentException iax) {
 
 		}
@@ -205,14 +185,11 @@ public class DateUtilTest {
 
 	@Test
 	public void testIntervals() {
-		boolean inInterval = DateUtil.isInInterval(leapFirstDate, leapLastDate,
-				leapFebruaryDate);
+		boolean inInterval = DateUtil.isInInterval(leapFirstDate, leapLastDate, leapFebruaryDate);
 		assertThat(inInterval).isEqualTo(true);
-		inInterval = DateUtil.isInInterval(leapFirstDate, leapLastDate,
-				leapLastDate);
+		inInterval = DateUtil.isInInterval(leapFirstDate, leapLastDate, leapLastDate);
 		assertThat(inInterval).isEqualTo(true);
-		inInterval = DateUtil.isInInterval(leapFirstDate, leapLastDate,
-				leapFirstDate);
+		inInterval = DateUtil.isInInterval(leapFirstDate, leapLastDate, leapFirstDate);
 		assertThat(inInterval).isEqualTo(true);
 
 		inInterval = DateUtil.isInInterval(null, null, null);
@@ -224,37 +201,28 @@ public class DateUtilTest {
 		inInterval = DateUtil.isInInterval(leapFirstDate, null, leapFebruaryDate);
 		assertThat(inInterval).isEqualTo(true);
 
-		inInterval = DateUtil.isInInterval(leapFirstDate, leapFebruaryDate,
-				leapLastDate);
-		assertThat(inInterval).isEqualTo(false).overridingErrorMessage(
-				"LastDate should be after interval");
-		inInterval = DateUtil.isInInterval(leapFebruaryDate, leapLastDate,
-				leapFirstDate);
-		assertThat(inInterval).isEqualTo(false).overridingErrorMessage(
-				"FirstDate should be before interval");
+		inInterval = DateUtil.isInInterval(leapFirstDate, leapFebruaryDate, leapLastDate);
+		assertThat(inInterval).isEqualTo(false).overridingErrorMessage("LastDate should be after interval");
+		inInterval = DateUtil.isInInterval(leapFebruaryDate, leapLastDate, leapFirstDate);
+		assertThat(inInterval).isEqualTo(false).overridingErrorMessage("FirstDate should be before interval");
 
 		inInterval = DateUtil.isInInterval(leapFirstDate, leapLastDate, null);
 		assertThat(inInterval).isEqualTo(false);
 
 		// isAfter
-		inInterval = DateUtil.isIntervalAfterDate(leapFebruaryDate, leapLastDate,
-				leapFirstDate);
+		inInterval = DateUtil.isIntervalAfterDate(leapFebruaryDate, leapLastDate, leapFirstDate);
 		assertThat(inInterval).isEqualTo(true);
 
-		inInterval = DateUtil
-				.isIntervalAfterDate(leapLastDate, null, leapFirstDate);
+		inInterval = DateUtil.isIntervalAfterDate(leapLastDate, null, leapFirstDate);
 		assertThat(inInterval).isEqualTo(true);
 
-		inInterval = DateUtil.isIntervalAfterDate(leapFirstDate, leapLastDate,
-				leapFirstDate);
+		inInterval = DateUtil.isIntervalAfterDate(leapFirstDate, leapLastDate, leapFirstDate);
 		assertThat(inInterval).isEqualTo(false);
 
-		inInterval = DateUtil
-				.isIntervalAfterDate(leapFirstDate, leapLastDate, null);
+		inInterval = DateUtil.isIntervalAfterDate(leapFirstDate, leapLastDate, null);
 		assertThat(inInterval).isEqualTo(false);
 
-		inInterval = DateUtil
-				.isIntervalAfterDate(leapFirstDate, null, leapLastDate);
+		inInterval = DateUtil.isIntervalAfterDate(leapFirstDate, null, leapLastDate);
 		assertThat(inInterval).isEqualTo(false);
 
 		inInterval = DateUtil.isIntervalAfterDate(null, null, leapFirstDate);

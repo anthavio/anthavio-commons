@@ -3,7 +3,7 @@
  */
 package net.anthavio.commons.test;
 
-import static org.fest.assertions.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.lang.reflect.GenericDeclaration;
 import java.lang.reflect.Type;
@@ -11,7 +11,7 @@ import java.lang.reflect.TypeVariable;
 
 import net.anthavio.util.ReflectUtil;
 
-import org.testng.annotations.Test;
+import org.junit.Test;
 
 /**
  * Type genericSuperclass = getClass().getGenericSuperclass(); Type first =
